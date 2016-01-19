@@ -31,12 +31,12 @@ import com.mongodb.util.JSON;
 
 public class ReadWriteManager {
 	
-	private final String ENCODING = "UTF-8";
-	private final String CONNECT_STRING = "mongodb://udms:123456@10.13.93.251:27017/";
-	private final String DATABASE = "CDC";
-	private final String COLLECTION = "NafLikeDocument";
+	private static final String ENCODING = "UTF-8";
+	private static final String CONNECT_STRING = "mongodb://udms:123456@10.13.93.251:27017/";
+	private static final String DATABASE = "CDC";
+	private static final String COLLECTION = "NafLikeDocument";
 	
-	public String readFromFile(String filename, String encoding) throws IOException {
+	public static String readFromFile(String filename, String encoding) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), Charset.forName(encoding)));
 		String ans = "";
 		boolean isfirstline = true;
@@ -52,23 +52,23 @@ public class ReadWriteManager {
 		return ans;
 	}
 	
-	public void writeToFile(String document, String filename, String encoding) throws IOException {
+	public static void writeToFile(String document, String filename, String encoding) throws IOException {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename), Charset.forName(encoding)));
 		bw.write(document);
 		bw.flush();
 		bw.close();
 	}
 	
-	public String saveToString(NafLikeDocument document) throws JsonProcessingException {
+	public static String saveToString(NafLikeDocument document) throws JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(document);
 	}
 	
-	public void saveToFile(NafLikeDocument document, String filename) throws JsonProcessingException, IOException {
+	public static void saveToFile(NafLikeDocument document, String filename) throws JsonProcessingException, IOException {
 		writeToFile(saveToString(document), filename, ENCODING);
 	}
 	
-	public String saveNewToMongo(NafLikeDocument document) throws JsonProcessingException {
+	public static String saveNewToMongo(NafLikeDocument document) throws JsonProcessingException {
 		MongoClient client = new MongoClient(new MongoClientURI(CONNECT_STRING));
 		@SuppressWarnings("deprecation")
 		DB db = client.getDB(DATABASE);
@@ -79,7 +79,7 @@ public class ReadWriteManager {
 		return object.get("_id").toString();
 	}
 	
-	public void updateToMongoById(NafLikeDocument document, String id) throws JsonProcessingException {
+	public static void updateToMongoById(NafLikeDocument document, String id) throws JsonProcessingException {
 		MongoClient client = new MongoClient(new MongoClientURI(CONNECT_STRING));
 		MongoDatabase database = client.getDatabase(DATABASE);
 		MongoCollection<BasicDBObject> collection = database.getCollection(COLLECTION, BasicDBObject.class);
@@ -91,20 +91,20 @@ public class ReadWriteManager {
 		}
 	}
 	
-	public NafLikeDocument loadFromString(String jsonDocument) throws JsonParseException, JsonMappingException, IOException {
+	public static NafLikeDocument loadFromString(String document) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(jsonDocument, NafLikeDocument.class);
+		return mapper.readValue(document, NafLikeDocument.class);
 	}
 	
-	public NafLikeDocument loadFromFile(String filename) throws JsonParseException, JsonMappingException, IOException {
+	public static NafLikeDocument loadFromFile(String filename) throws JsonParseException, JsonMappingException, IOException {
 		return loadFromString(readFromFile(filename, ENCODING));
 	}
 	
-	public NafLikeDocument loadFromMongoById(String id) throws JsonParseException, JsonMappingException, IOException {
+	public static NafLikeDocument loadFromMongoById(String id) throws JsonParseException, JsonMappingException, IOException {
 		MongoClient client = new MongoClient(new MongoClientURI(CONNECT_STRING));
 		MongoDatabase database = client.getDatabase(DATABASE);
 		MongoCollection<Document> collection = database.getCollection(COLLECTION);
-		Document ans = collection.find(Filters.eq("_id", new ObjectId(id))).filter(Projections.excludeId()).first();
+		Document ans = collection.find(Filters.eq("_id", new ObjectId(id))).projection(Projections.excludeId()).first();
 		client.close();
 		if (ans == null) {
 			throw new IdNotExistException("Id to be load does not exist.");

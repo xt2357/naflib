@@ -12,7 +12,7 @@ public class TokenSpan implements Serializable {
 	}
 	
 	private int startTokenIndex, endTokenIndex;
-	List<DocumentComponent> relatedComponent;
+	DocumentComponent relatedComponent;
 	
 	public int getStartTokenIndex() {
 		return startTokenIndex;
@@ -26,10 +26,10 @@ public class TokenSpan implements Serializable {
 	public void setEndTokenIndex(int endTokenIndex) {
 		this.endTokenIndex = endTokenIndex;
 	}
-	public List<DocumentComponent> getRelatedComponent() {
+	public DocumentComponent getRelatedComponent() {
 		return relatedComponent;
 	}
-	public void setRelatedComponent(List<DocumentComponent> relatedComponent) {
+	public void setRelatedComponent(DocumentComponent relatedComponent) {
 		this.relatedComponent = relatedComponent;
 	}
 }
