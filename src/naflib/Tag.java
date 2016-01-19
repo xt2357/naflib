@@ -11,7 +11,7 @@ public class Tag implements Serializable {
 	}
 	
 	private String tagName;
-	private int tagId;
+	private Integer tagId;
 	private double similarity;
 	
 	public String getTagName() {
@@ -20,10 +20,10 @@ public class Tag implements Serializable {
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
-	public int getTagId() {
+	public Integer getTagId() {
 		return tagId;
 	}
-	public void setTagId(int tagId) {
+	public void setTagId(Integer tagId) {
 		this.tagId = tagId;
 	}
 	public double getSimilarity() {

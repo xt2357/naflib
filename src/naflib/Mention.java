@@ -11,7 +11,7 @@ public class Mention implements Serializable {
 	}
 	
 	private String mentionText;
-	private int startTokenIndex, endTokenIndex;
+	private Integer startTokenIndex, endTokenIndex;
 	
 	public String getMentionText() {
 		return mentionText;
@@ -19,16 +19,16 @@ public class Mention implements Serializable {
 	public void setMentionText(String mentionText) {
 		this.mentionText = mentionText;
 	}
-	public int getStartTokenIndex() {
+	public Integer getStartTokenIndex() {
 		return startTokenIndex;
 	}
-	public void setStartTokenIndex(int startTokenIndex) {
+	public void setStartTokenIndex(Integer startTokenIndex) {
 		this.startTokenIndex = startTokenIndex;
 	}
-	public int getEndTokenIndex() {
+	public Integer getEndTokenIndex() {
 		return endTokenIndex;
 	}
-	public void setEndTokenIndex(int endTokenIndex) {
+	public void setEndTokenIndex(Integer endTokenIndex) {
 		this.endTokenIndex = endTokenIndex;
 	}
 	

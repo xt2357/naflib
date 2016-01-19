@@ -29,6 +29,7 @@ import com.mongodb.client.model.Projections;
 import com.mongodb.client.result.UpdateResult;
 import com.mongodb.util.JSON;
 
+
 public class ReadWriteManager {
 	
 	private static final String ENCODING = "UTF-8";
@@ -93,6 +94,7 @@ public class ReadWriteManager {
 	
 	public static NafLikeDocument loadFromString(String document) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
+		
 		return mapper.readValue(document, NafLikeDocument.class);
 	}
 	
@@ -107,8 +109,17 @@ public class ReadWriteManager {
 		Document ans = collection.find(Filters.eq("_id", new ObjectId(id))).projection(Projections.excludeId()).first();
 		client.close();
 		if (ans == null) {
-			throw new IdNotExistException("Id to be load does not exist.");
+//			throw new IdNotExistException("Id to be load does not exist.");
+			return null;
 		}
 		return loadFromString(ans.toJson());
+	}
+	
+	public static void deleteFromMongoById(String id) {
+		MongoClient client = new MongoClient(new MongoClientURI(CONNECT_STRING));
+		MongoDatabase database = client.getDatabase(DATABASE);
+		MongoCollection<Document> collection = database.getCollection(COLLECTION);
+		collection.deleteOne(Filters.eq("_id", new ObjectId(id)));
+		client.close();
 	}
 }

@@ -11,7 +11,7 @@ public class Category implements Serializable{
 	}
 	
 	private String categoryName;
-	private int categoryId;
+	private Integer categoryId;
 	
 	public String getCategoryName() {
 		return categoryName;
@@ -19,10 +19,10 @@ public class Category implements Serializable{
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 }

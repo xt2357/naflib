@@ -11,7 +11,7 @@ public class Sentence implements Serializable {
 	}
 	
 	private String sentenceText;
-	private int startTokenIndex, endTokenIndex;
+	private Integer startTokenIndex, endTokenIndex;
 	
 	public String getSentenceText() {
 		return sentenceText;
@@ -19,16 +19,16 @@ public class Sentence implements Serializable {
 	public void setSentenceText(String sentenceText) {
 		this.sentenceText = sentenceText;
 	}
-	public int getStartTokenIndex() {
+	public Integer getStartTokenIndex() {
 		return startTokenIndex;
 	}
-	public void setStartTokenIndex(int startTokenIndex) {
+	public void setStartTokenIndex(Integer startTokenIndex) {
 		this.startTokenIndex = startTokenIndex;
 	}
-	public int getEndTokenIndex() {
+	public Integer getEndTokenIndex() {
 		return endTokenIndex;
 	}
-	public void setEndTokenIndex(int endTokenIndex) {
+	public void setEndTokenIndex(Integer endTokenIndex) {
 		this.endTokenIndex = endTokenIndex;
 	}
 }

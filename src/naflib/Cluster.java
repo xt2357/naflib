@@ -11,7 +11,7 @@ public class Cluster implements Serializable {
 	}
 	
 	private String clusterName;
-	private int clusterId;
+	private Integer clusterId;
 	
 	public String getClusterName() {
 		return clusterName;
@@ -19,10 +19,10 @@ public class Cluster implements Serializable {
 	public void setClusterName(String clusterName) {
 		this.clusterName = clusterName;
 	}
-	public int getClusterId() {
+	public Integer getClusterId() {
 		return clusterId;
 	}
-	public void setClusterId(int clusterId) {
+	public void setClusterId(Integer clusterId) {
 		this.clusterId = clusterId;
 	}
 }

@@ -11,7 +11,7 @@ public class DocumentComponent implements Serializable {
 	}
 	
 	private String fieldName;
-	private int index;
+	private Integer index;
 	
 	public String getFieldName() {
 		return fieldName;
@@ -19,10 +19,10 @@ public class DocumentComponent implements Serializable {
 	public void setFieldName(String fieldName) {
 		this.fieldName = fieldName;
 	}
-	public int getIndex() {
+	public Integer getIndex() {
 		return index;
 	}
-	public void setIndex(int index) {
+	public void setIndex(Integer index) {
 		this.index = index;
 	}
 }

@@ -10,19 +10,19 @@ public class TokenSpan implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private int startTokenIndex, endTokenIndex;
+	private Integer startTokenIndex, endTokenIndex;
 	DocumentComponent relatedComponent;
 	
-	public int getStartTokenIndex() {
+	public Integer getStartTokenIndex() {
 		return startTokenIndex;
 	}
-	public void setStartTokenIndex(int startTokenIndex) {
+	public void setStartTokenIndex(Integer startTokenIndex) {
 		this.startTokenIndex = startTokenIndex;
 	}
-	public int getEndTokenIndex() {
+	public Integer getEndTokenIndex() {
 		return endTokenIndex;
 	}
-	public void setEndTokenIndex(int endTokenIndex) {
+	public void setEndTokenIndex(Integer endTokenIndex) {
 		this.endTokenIndex = endTokenIndex;
 	}
 	public DocumentComponent getRelatedComponent() {

@@ -13,7 +13,7 @@ public class KeyWord implements Serializable {
 	
 	private String keyWordText;
 	private double weight;
-	private int tf;
+	private Integer tf;
 	List<Mention> mentions;
 	
 	public String getKeyWordText() {
@@ -28,10 +28,10 @@ public class KeyWord implements Serializable {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	public int getTf() {
+	public Integer getTf() {
 		return tf;
 	}
-	public void setTf(int tf) {
+	public void setTf(Integer tf) {
 		this.tf = tf;
 	}
 	public List<Mention> getMentions() {

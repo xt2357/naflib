@@ -22,5 +22,8 @@ public class TestMain {
 		// retrieve modified document and display
 		NafLikeDocument retrievedDocument = ReadWriteManager.loadFromMongoById(id);
 		System.out.println(ReadWriteManager.saveToString(retrievedDocument));
+		// test serialize empty doc, null pointer should be convert to null value in json
+		NafLikeDocument emptydoc = new NafLikeDocument();
+		System.out.println(ReadWriteManager.saveToString(emptydoc));
 	}
 }

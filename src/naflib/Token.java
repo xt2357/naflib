@@ -11,9 +11,9 @@ public class Token implements Serializable {
 	}
 	
 	private String tokenText;
-	private int start, end;
+	private Integer start, end;
 	private String pos, lemma;
-	private int tf, tokenSpanIndex;
+	private Integer tf, tokenSpanIndex;
 	
 	public String getTokenText() {
 		return tokenText;
@@ -21,16 +21,16 @@ public class Token implements Serializable {
 	public void setTokenText(String tokenText) {
 		this.tokenText = tokenText;
 	}
-	public int getStart() {
+	public Integer getStart() {
 		return start;
 	}
-	public void setStart(int start) {
+	public void setStart(Integer start) {
 		this.start = start;
 	}
-	public int getEnd() {
+	public Integer getEnd() {
 		return end;
 	}
-	public void setEnd(int end) {
+	public void setEnd(Integer end) {
 		this.end = end;
 	}
 	public String getPos() {
@@ -45,16 +45,16 @@ public class Token implements Serializable {
 	public void setLemma(String lemma) {
 		this.lemma = lemma;
 	}
-	public int getTf() {
+	public Integer getTf() {
 		return tf;
 	}
-	public void setTf(int tf) {
+	public void setTf(Integer tf) {
 		this.tf = tf;
 	}
-	public int getTokenSpanIndex() {
+	public Integer getTokenSpanIndex() {
 		return tokenSpanIndex;
 	}
-	public void setTokenSpanIndex(int tokenSpanIndex) {
+	public void setTokenSpanIndex(Integer tokenSpanIndex) {
 		this.tokenSpanIndex = tokenSpanIndex;
 	}
 }

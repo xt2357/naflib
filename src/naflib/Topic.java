@@ -11,7 +11,7 @@ public class Topic implements Serializable {
 	}
 	
 	private String topicName;
-	private int topicId;
+	private Integer topicId;
 	
 	public String getTopicName() {
 		return topicName;
@@ -19,10 +19,10 @@ public class Topic implements Serializable {
 	public void setTopicName(String topicName) {
 		this.topicName = topicName;
 	}
-	public int getTopicId() {
+	public Integer getTopicId() {
 		return topicId;
 	}
-	public void setTopicId(int topicId) {
+	public void setTopicId(Integer topicId) {
 		this.topicId = topicId;
 	}
 	
