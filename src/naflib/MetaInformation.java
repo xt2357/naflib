@@ -1,6 +1,10 @@
 package naflib;
 
-public class MetaInformation {
+import java.io.Serializable;
+
+public class MetaInformation implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	public MetaInformation() {
 		// TODO Auto-generated constructor stub
